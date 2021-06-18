@@ -1,13 +1,21 @@
 package com.apinanyogaratnam.restservice;
 
+import java.util.concurrent.atomic.AtomicLong;
+
 public class Languages {
 
     private String name;
     private int year;
+    private final long id;
 
-    public Languages(String name, int year) {
+    public Languages(long id, String name, int year) {
+        this.id = id;
         this.name = name;
         this.year = year;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getName() {
