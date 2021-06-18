@@ -50,9 +50,9 @@ public class LanguagesController {
 
     @GetMapping("")
     public LinkedList<Languages> languages(String name) {
-
         String tableName = "languages";
         String[] columnLabels = {"id", "name", "year"};
+
         return readDB(tableName, columnLabels, credentials);
     }
 }
