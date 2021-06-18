@@ -1,0 +1,10 @@
+CREATE TABLE languages (id INT PRIMARY KEY NOT NULL, name VARCHAR(50) NOT NULL, year INT NOT NULL);
+INSERT INTO languages VALUES (1, 'Java', 1995);
+INSERT INTO languages VALUES (2, 'C', 1972);
+INSERT INTO languages VALUES (3, 'C++', 1985);
+INSERT INTO languages VALUES (4, 'Ruby', 1995);
+INSERT INTO languages VALUES (5, 'Python', 1989);
+INSERT INTO languages VALUES (6, 'JavaScript', 1995);
+INSERT INTO languages VALUES (7, 'HTML', 1993);
+INSERT INTO languages VALUES (8, 'CSS', 1996);
+INSERT INTO languages VALUES (9, 'GO', 2009);
