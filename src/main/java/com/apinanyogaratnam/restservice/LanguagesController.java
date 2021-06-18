@@ -17,8 +17,8 @@ public class LanguagesController {
     Secrets credentials = new Secrets("apinan", "admin", "jdbc:postgresql://localhost/apinanyogaratnam");
 
 
-    public LinkedList<String[]> readDB(String tableName, String[] columnLabels, Secrets credentials) {
-        LinkedList<String[]> databaseData = new LinkedList<>();
+    public LinkedList<Languages> readDB(String tableName, String[] columnLabels, Secrets credentials) {
+        LinkedList<Languages> databaseData = new LinkedList<>();
 
         try {
             // get a connection to database
@@ -32,13 +32,11 @@ public class LanguagesController {
             ResultSet result = statement.executeQuery(query);
 
             while (result.next()) {
-                String[] rowContents = new String[columnLabels.length];
+                int id = result.getInt("id");
+                String name = result.getString("name");
+                int year = result.getInt("year");
 
-                for (int i=0; i<columnLabels.length; i++) {
-                    rowContents[i] = result.getString(columnLabels[i]);
-                }
-
-                databaseData.add(rowContents);
+                databaseData.add(new Languages(id, name, year));
             }
 
             // close connection to server
@@ -52,16 +50,19 @@ public class LanguagesController {
 
     @GetMapping("")
     public LinkedList<Languages> languages(String name) {
-        LinkedList<Languages> languages = new LinkedList<>();
-        languages.add(new Languages(counter.incrementAndGet(), "Java", 1995));
-        languages.add(new Languages(counter.incrementAndGet(), "C", 1972));
-        languages.add(new Languages(counter.incrementAndGet(), "C++", 1985));
-        languages.add(new Languages(counter.incrementAndGet(), "Ruby", 1995));
-        languages.add(new Languages(counter.incrementAndGet(), "Python", 1989));
-        languages.add(new Languages(counter.incrementAndGet(), "JavaScript", 1995));
-        languages.add(new Languages(counter.incrementAndGet(), "HTML", 1993));
-        languages.add(new Languages(counter.incrementAndGet(), "CSS", 1996));
-        languages.add(new Languages(counter.incrementAndGet(), "GO", 2009));
-        return languages;
+//        LinkedList<Languages> languages = new LinkedList<>();
+//        languages.add(new Languages(counter.incrementAndGet(), "Java", 1995));
+//        languages.add(new Languages(counter.incrementAndGet(), "C", 1972));
+//        languages.add(new Languages(counter.incrementAndGet(), "C++", 1985));
+//        languages.add(new Languages(counter.incrementAndGet(), "Ruby", 1995));
+//        languages.add(new Languages(counter.incrementAndGet(), "Python", 1989));
+//        languages.add(new Languages(counter.incrementAndGet(), "JavaScript", 1995));
+//        languages.add(new Languages(counter.incrementAndGet(), "HTML", 1993));
+//        languages.add(new Languages(counter.incrementAndGet(), "CSS", 1996));
+//        languages.add(new Languages(counter.incrementAndGet(), "GO", 2009));
+
+        String tableName = "languages";
+        String[] columnLabels = {"id", "name", "year"};
+        return readDB(tableName, columnLabels, credentials);
     }
 }
