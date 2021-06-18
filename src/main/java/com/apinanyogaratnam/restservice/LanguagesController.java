@@ -13,7 +13,7 @@ public class LanguagesController {
     private final AtomicLong counter = new AtomicLong();
 
     @GetMapping("")
-    public LinkedList<Languages> languages(@RequestParam(value = "name", defaultValue = "World") String name) {
+    public LinkedList<Languages> languages(String name) {
         LinkedList<Languages> languages = new LinkedList<>();
         languages.add(new Languages(counter.incrementAndGet(), "Java", 1995));
         languages.add(new Languages(counter.incrementAndGet(), "C", 1972));
