@@ -50,16 +50,6 @@ public class LanguagesController {
 
     @GetMapping("")
     public LinkedList<Languages> languages(String name) {
-//        LinkedList<Languages> languages = new LinkedList<>();
-//        languages.add(new Languages(counter.incrementAndGet(), "Java", 1995));
-//        languages.add(new Languages(counter.incrementAndGet(), "C", 1972));
-//        languages.add(new Languages(counter.incrementAndGet(), "C++", 1985));
-//        languages.add(new Languages(counter.incrementAndGet(), "Ruby", 1995));
-//        languages.add(new Languages(counter.incrementAndGet(), "Python", 1989));
-//        languages.add(new Languages(counter.incrementAndGet(), "JavaScript", 1995));
-//        languages.add(new Languages(counter.incrementAndGet(), "HTML", 1993));
-//        languages.add(new Languages(counter.incrementAndGet(), "CSS", 1996));
-//        languages.add(new Languages(counter.incrementAndGet(), "GO", 2009));
 
         String tableName = "languages";
         String[] columnLabels = {"id", "name", "year"};
