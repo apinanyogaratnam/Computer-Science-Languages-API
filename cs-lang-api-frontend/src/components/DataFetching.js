@@ -5,7 +5,7 @@ const DataFetching = () => {
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
-        axios.get("raw.githubusercontent.com/apinanyogaratnam/computer-science-languages-api/main/data.json")
+        axios.get("https://raw.githubusercontent.com/apinanyogaratnam/Computer-Science-Languages-API/main/data.json")
             .then(res => {
                 console.log(res)
                 setPosts(res.data)
