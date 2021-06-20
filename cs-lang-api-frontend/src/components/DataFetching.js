@@ -19,7 +19,10 @@ const DataFetching = () => {
             <ul>
                 {
                     posts.map(post => (
-                        <li key={post.id}>{post.title}</li>
+                        <div className="float-container">
+                            <h2 className="float-child">Language: {post.name}</h2>
+                            <h2 className="float-child">year: {post.year}</h2>
+                        </div>
                     ))}
             </ul>
         </div>
