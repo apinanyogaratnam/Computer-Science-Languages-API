@@ -15,16 +15,15 @@ const DataFetching = () => {
     }, [])
 
     return (
-        <div>
-            <ul>
+        <div className="App">
                 {
                     posts.map(post => (
                         <div className="float-container">
-                            <h2 className="float-child">Language: {post.name}</h2>
-                            <h2 className="float-child">year: {post.year}</h2>
+                            <h2 className="float-left">Language: {post.name}</h2>
+                            <h2 className="float-right">year: {post.year}</h2>
                         </div>
-                    ))}
-            </ul>
+                    ))
+                }
         </div>
     )
 }
